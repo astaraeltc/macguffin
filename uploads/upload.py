@@ -370,8 +370,8 @@ class Upload(object):
         if (
             (0 < h <= 576 and 0 < w <= 1024 and resolution not in ('Standard Def', '480p', '576p'))
             or (576 < h <= 720 and 1024 < w <= 1280 and resolution != '720p')
-            or (720 < h <= 1080 and 1280 < w <= 1920 and resolution != '1080p')
-            or (h > 1080 or w > 1920)
+            or (720 < h <= 1080 and 1280 < w <= 1920 and resolution not in ('1080p', '1080i'))
+            or (resolution != '2160p' and h > 1080 and w > 1920)
         ):
             msg = 'Release resolution "{resolution}" does not match width and height ({w} x {h}).'
             raise UploadInterruptedError(msg.format(resolution=resolution, w=w, h=h))
