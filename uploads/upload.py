@@ -63,19 +63,6 @@ class Upload(object):
         self.resolution = None
         self.codec = None
         self.container = None
-        self.CODEC_STRING = {
-            metadata.Codecs.H264: 'x264',
-            metadata.Codecs.H265: 'x265',
-            metadata.Codecs.XVID: 'XviD',
-            metadata.Codecs.DIVX: 'DivX',
-            metadata.Codecs.H264: 'h.264',
-            metadata.Codecs.H265: 'h.265',
-            metadata.Codecs.DVDR: 'DVDR',
-            metadata.Codecs.MPEG2: 'MPEG-2',
-            metadata.Codecs.H264: 'AVC',
-            metadata.Codecs.H264: 'VC-1',
-            metadata.Codecs.H265: 'HEVC',
-            }
         self.nfo = None
         self.tmdb = None
         self.film_description = None
@@ -397,8 +384,7 @@ class Upload(object):
             release_codec = self.tracker.CODEC_STRING[self.release.codec]
             mediainfo_codec = self.tracker.CODEC_STRING[self.mediainfo.codec]
             msg = 'Release codec "{r}" does not match mediainfo codec "{m}".'
-            #raise UploadInterruptedError(msg.format(r=release_codec, m=mediainfo_codec))
-            self.codec = self.release.codec
+            raise UploadInterruptedError(msg.format(r=release_codec, m=mediainfo_codec))
         else:
             logging.debug('Release name matches codec found in mediainfo.')
             self.codec = self.mediainfo.codec
