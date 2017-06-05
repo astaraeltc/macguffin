@@ -49,6 +49,9 @@ class Codecs:
     MPEG2 = 5
     AVC = 6
     VC1 = 7
+    X265 = 8
+    H265 = 9
+    HEVC = 10
 
 
 class Containers:

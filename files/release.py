@@ -438,7 +438,7 @@ VIDEO_EXTENSION_WHITELIST = (
 NON_TITLE_REGEX = re.compile(r'\.(?:\(?(?:19|20)[0-9]{2}\)?|480p|576p|720p|1080p|1080i|NTSC|PAL|STV|PPF|R5|DVDSCR|SCREENER|DVDRip|BDRip|LIMITED|COMPLETE|PROPER|REPACK|RERiP|TS|TELESYNC|CAM|FESTIVAL|SUBBED)\..*', re.IGNORECASE)
 YEAR_REGEX = re.compile(r'\.(\(?(?:19|20)[0-9]{2}\)?)(\.|\-|$)')
 SOURCE_REGEX = re.compile(r'\.(NTSC|PAL|R[56C]|TS|CAM|TELESYNC|SCREENER|DVDSCR|BDRip|Blu\-?Ray|HDDVD|DVDRip|DVDR?|HDTV|WEB-DL|WEBRip|DTheater|TVRip)(\.|\-|$)', re.IGNORECASE)
-FORMAT_REGEX = re.compile(r'\.(XViD|x264|DVDR|VIDEO_TS|H\.?264|MPEG2|AVC)(\-|\.|$)', re.IGNORECASE)
+FORMAT_REGEX = re.compile(r'\.(XViD|x264|x265|DVDR|VIDEO_TS|H\.?264|H\.?265|HEVC|MPEG2|AVC)(\-|\.|$)', re.IGNORECASE)
 RESOLUTION_REGEX = re.compile(r'\.(1080p|1080i|720p|480p|576p)(\.|\-|$)', re.IGNORECASE)
 GROUP_REGEX = re.compile(r'\-([^\.]*)$')
 
@@ -472,15 +472,18 @@ SOURCE = {
 # This dict maps lowercase regex-matched codecs to the Codecs enum value
 CODEC = {
     'x264': metadata.Codecs.X264,
+    'x264': metadata.Codecs.X265,
     'xvid': metadata.Codecs.XVID,
     'divx': metadata.Codecs.DIVX,
     'h264': metadata.Codecs.H264,
+    'h265': metadata.Codecs.H265,
     'h.264': metadata.Codecs.H264,
     'dvdr': metadata.Codecs.DVDR,
     'video_ts': metadata.Codecs.DVDR,
     'mpeg2': metadata.Codecs.MPEG2,
     'avc': metadata.Codecs.AVC,
     'vc-1': metadata.Codecs.VC1,
+    'hevc': metadata.Codecs.HEVC,
 }
 
 

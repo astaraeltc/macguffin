@@ -127,15 +127,19 @@ class Mediainfo(object):
                 self.codec = Codecs.X264
             elif codec.lower().startswith('xvid'):
                 self.codec = Codecs.XVID
+            elif codec.lower().startswith('x265'):
+                self.codec = Codecs.X265
             else:
                 msg = 'Did not recognize codec: {codec}'
                 raise MediainfoError(msg.format(codec=codec))
         except KeyError:
-            # A hack to take care of H.264 that wasn't encoded with x264
-            # TODO: better handling of H.264; in particular, we might hit another KeyError here
+            # A hack to take care of H.264|H.265 that wasn't encoded with x264|x265 encoders
+            # TODO: better handling of H.264 and H.265; in particular, we might hit another KeyError here
             video_format = self['Video']['Format']
             if video_format == 'AVC':
                 self.codec = Codecs.H264
+            elif video_format == 'HEVC':
+                self.codec = Codecs.HEVC
             else:
                 msg = 'Unable to parse codec from mediainfo.\n{text}'
                 raise MediainfoError(msg.format(text=self.text))
