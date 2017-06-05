@@ -72,14 +72,12 @@ class BaseTracker(object):
 
     # The codec strings expected by the tracker's upload form
     CODEC_STRING = {
-        metadata.Codecs.X264: 'x264',
+        metadata.Codecs.H264: 'h.264',
+        metadata.Codecs.H265: 'h.265',
         metadata.Codecs.XVID: 'XviD',
         metadata.Codecs.DIVX: 'DivX',
-        metadata.Codecs.H264: 'h.264',
         metadata.Codecs.DVDR: 'DVDR',
         metadata.Codecs.MPEG2: 'MPEG-2',
-        metadata.Codecs.AVC: 'AVC',
-        metadata.Codecs.VC1: 'VC-1',
     }
 
     # The set of release groups specifically banned at the tracker

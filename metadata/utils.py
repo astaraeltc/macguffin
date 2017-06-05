@@ -41,17 +41,14 @@ class Codecs:
     def __init__(self):
         raise NotImplementedError
 
-    X264 = 0
-    XVID = 1
-    DIVX = 2
-    H264 = 3
+    H264 = 0
+    H265 = 1
+    XVID = 2
+    DIVX = 3
     DVDR = 4
     MPEG2 = 5
-    AVC = 6
-    VC1 = 7
-    X265 = 8
-    H265 = 9
-    HEVC = 10
+    X264 = 0
+    X265 = 1
 
 
 class Containers:

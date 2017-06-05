@@ -471,8 +471,8 @@ SOURCE = {
 
 # This dict maps lowercase regex-matched codecs to the Codecs enum value
 CODEC = {
-    'x264': metadata.Codecs.X264,
-    'x264': metadata.Codecs.X265,
+    'x264': metadata.Codecs.H264,
+    'x265': metadata.Codecs.H265,
     'xvid': metadata.Codecs.XVID,
     'divx': metadata.Codecs.DIVX,
     'h264': metadata.Codecs.H264,
@@ -481,9 +481,9 @@ CODEC = {
     'dvdr': metadata.Codecs.DVDR,
     'video_ts': metadata.Codecs.DVDR,
     'mpeg2': metadata.Codecs.MPEG2,
-    'avc': metadata.Codecs.AVC,
-    'vc-1': metadata.Codecs.VC1,
-    'hevc': metadata.Codecs.HEVC,
+    'avc': metadata.Codecs.H264,
+    'vc-1': metadata.Codecs.H264,
+    'hevc': metadata.Codecs.H265,
 }
 
 

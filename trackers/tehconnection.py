@@ -65,17 +65,12 @@ class TehConnection(BaseTracker):
 
     # The codec strings TC's upload form expects
     CODEC_STRING = {
-        metadata.Codecs.H264: 'x264',
-        metadata.Codecs.H264: 'x265',
-        metadata.Codecs.XVID: 'XviD',
-        metadata.Codecs.DIVX: 'DivX',
         metadata.Codecs.H264: 'h.264',
         metadata.Codecs.H265: 'h.265',
+        metadata.Codecs.XVID: 'XviD',
+        metadata.Codecs.DIVX: 'DivX',
         metadata.Codecs.DVDR: 'DVDR',
         metadata.Codecs.MPEG2: 'MPEG-2',
-        metadata.Codecs.H264: 'AVC',
-        metadata.Codecs.H264: 'VC-1',
-        metadata.Codecs.H265: 'HEVC',
     }
 
     # Release groups specifically banned at TC
@@ -176,7 +171,6 @@ class TehConnection(BaseTracker):
 
         # Log in to get new cookies if necessary
         self.login()
-
         params = {
             'action': 'dupe_check',
             'group': release.torrent_group_id,
@@ -190,7 +184,6 @@ class TehConnection(BaseTracker):
 
         response = self.request('upload.php', params=params)
         response_json = response.json()
-
         if response_json['status'] == 'error':
             msg = 'Error using dupe_check: {error}'
             raise TrackerError(msg.format(error=response_json['error']))
